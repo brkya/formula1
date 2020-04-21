@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/dao/TakimlarDAO.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/entity/Takimlar.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/entity/Yariscilar.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/entity/Pistler.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/entity/Yaris.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/entity/YarisYariscilar.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/entity/TakimKoclari.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/dao/PistlerDAO.java</file>
-            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/dao/YariscilarDAO.java</file>
+            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/web/panel/koclar/koclar.xhtml</file>
+            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/controller/PistlerController.java</file>
+            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/web/index.xhtml</file>
+            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/web/panel/pistler/pistler.xhtml</file>
+            <file>file:/C:/Users/Burak/Documents/NetBeansProjects/Formula1/src/java/controller/TakimKoclariController.java</file>
         </group>
     </open-files>
 </project-private>

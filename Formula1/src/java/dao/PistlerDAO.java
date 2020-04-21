@@ -6,7 +6,6 @@
 package dao;
 
 import entity.Pistler;
-import entity.Yaris;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,9 +46,8 @@ public class PistlerDAO {
 
     public List<Pistler> listele() {
         List<Pistler> pistList = new ArrayList();
-
         try {
-            PreparedStatement pst = this.getConnection().prepareStatement("select * from pistler ");
+            PreparedStatement pst = this.getConnection().prepareStatement("select * from pistler");
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
@@ -85,6 +83,20 @@ public class PistlerDAO {
             PreparedStatement pst = this.getConnection().prepareStatement("delete from pistler where pist_id=?");
             pst.setLong(1, pist.getPist_id());
             pst.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void duzelt(Pistler pist) {
+        try {
+            PreparedStatement pst = this.getConnection().prepareStatement("update pistler set pist_adi=?,tur_sayisi=?,ulke=? where takim_id=?");
+            pst.setString(1, pist.getPist_adi());
+            pst.setInt(2, pist.getTur_sayisi());
+            pst.setString(3, pist.getUlke());
+            pst.setLong(5, pist.getPist_id());
+            pst.executeUpdate();
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

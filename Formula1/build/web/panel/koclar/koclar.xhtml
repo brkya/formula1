@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+        <title>Koclar</title>
+    </h:head>
+    
+    <h:body>
+        <h:form>
+            <h:dataTable styleClass="table table-striped" value="#{takimKoclariController.takimKoclariList}" var="koc">
+                <h:column>
+                    <f:facet name="header"> Koc_id </f:facet>
+                        #{koc.koc_id}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Adi</f:facet>
+                    <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.koc_adi}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Soyadi</f:facet>
+                    <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.koc_soyadi}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Yas</f:facet>
+                    <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.yas}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Doğum Yeri</f:facet>
+                    <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.dogum_yeri}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Sil</f:facet>
+                    <h:commandButton  styleClass="btn btn-danger" action="#{takimKoclariController.onaylaSil(koc)}" value ="Sil" >
+
+                    </h:commandButton>
+
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

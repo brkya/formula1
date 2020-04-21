@@ -13,20 +13,28 @@ import java.sql.SQLException;
  *
  * @author Burak
  */
+
 public class DBConnection {
-    private final String url = "jdbc:postgresql://localhost/formula1";
-    private final String user = "postgres";
-    private final String password = "123";
 
     public Connection connect() {
-        Connection conn = null;
+        Connection c = null;
+
         try {
-            conn = DriverManager.getConnection(url, user, password);
-            //System.out.println("Connected to the PostgreSQL server successfully.");
+            Class.forName("org.postgresql.Driver").newInstance();
+            c =  (Connection) DriverManager.getConnection("jdbc:postgresql://localhost/formula1?user=postgres&password=123");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            System.out.println(ex.getMessage());
         }
 
-        return conn;
+        return c;
     }
 }
+
+
+
+
+
+
+            
