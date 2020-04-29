@@ -5,50 +5,65 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <h:outputStylesheet library ="css" name="bootstrap.css"/>
-        <title>Facelet Title</title>
+        <title>Pistler</title>
     </h:head>
     <h:body>
+
+        <h:form>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="btn-group" role="group">
+                    <h:link class="navbar-brand" value="Formula 1" outcome="/index.xhtml" ></h:link>
+                    <h:link class="navbar-brand" value="Yariscilar" outcome="/panel/yariscilar/yariscilar" ></h:link>
+                    <h:link class="navbar-brand" value="Yarislar" outcome="/panel/yaris/yaris" ></h:link>
+                    <h:link class="navbar-brand" value="Pistler" outcome="/panel/pistler/pistler" ></h:link>
+                    <h:link class="navbar-brand" value="Koclar" outcome="/panel/koclar/koclar" ></h:link>
+                    <h:link class="navbar-brand" value="Takimlar" outcome="/panel/takimlar/takimlar" ></h:link>
+                </div>
+            </nav>
+        </h:form>
+
+
         <h:form>
             <h:dataTable styleClass="table table-striped" value="#{pistlerController.pistlerList}" var="pist">
-                        <h:column>
-                            <f:facet name="header"> pist_id</f:facet>
-                                #{pist.pist_id}
-                        </h:column>
+                <h:column>
+                    <f:facet name="header"> pist_id</f:facet>
+                        #{pist.pist_id}
+                </h:column>
 
-                        <h:column>
-                            <f:facet name="header"> Pist Adi</f:facet>
-                            <h:commandLink action ="#{pistlerController.formuGuncelle(pist)}" value="#{pist.pist_adi}" >
+                <h:column>
+                    <f:facet name="header"> Pist Adi</f:facet>
+                    <h:commandLink action ="#{pistlerController.formuGuncelle(pist)}" value="#{pist.pist_adi}" >
 
-                            </h:commandLink>
+                    </h:commandLink>
 
-                        </h:column>
+                </h:column>
 
-                        <h:column>
-                            <f:facet name="header"> Tur Sayısı</f:facet>
-                            <h:commandLink action ="#{pistlerController.formuGuncelle(pist)}" value="#{pist.tur_sayisi}" >
+                <h:column>
+                    <f:facet name="header"> Tur Sayısı</f:facet>
+                    <h:commandLink action ="#{pistlerController.formuGuncelle(pist)}" value="#{pist.tur_sayisi}" >
 
-                            </h:commandLink>
+                    </h:commandLink>
 
-                        </h:column>
+                </h:column>
 
-                        <h:column>
-                            <f:facet name="header"> Ülke</f:facet>
-                            <h:commandLink action ="#{pistlerController.formuGuncelle(pist)}" value="#{pist.ulke}" >
+                <h:column>
+                    <f:facet name="header"> Ülke</f:facet>
+                    <h:commandLink action ="#{pistlerController.formuGuncelle(pist)}" value="#{pist.ulke}" >
 
-                            </h:commandLink>
+                    </h:commandLink>
 
-                        </h:column>
+                </h:column>
 
-                        <h:column>
-                            <f:facet name="header"> Sil</f:facet>
-                            <h:commandButton  styleClass="btn btn-danger" action="#{pistlerController.onaylaSil(pist)}" value ="Sil" >
+                <h:column>
+                    <f:facet name="header"> Sil</f:facet>
+                    <h:commandButton  styleClass="btn btn-danger" action="#{pistlerController.onaylaSil(pist)}" value ="Sil" >
 
-                            </h:commandButton>
+                    </h:commandButton>
 
-                        </h:column>
+                </h:column>
 
-                    </h:dataTable>
-            </h:form>
+            </h:dataTable>
+        </h:form>
     </h:body>
 </html>
 

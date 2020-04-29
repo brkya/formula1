@@ -7,8 +7,23 @@
         <h:outputStylesheet library ="css" name="bootstrap.css"/>
         <title>Koclar</title>
     </h:head>
-    
+
     <h:body>
+
+        <h:form>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="btn-group" role="group">
+                    <h:link class="navbar-brand" value="Formula 1" outcome="/index.xhtml" ></h:link>
+                    <h:link class="navbar-brand" value="Yariscilar" outcome="/panel/yariscilar/yariscilar" ></h:link>
+                    <h:link class="navbar-brand" value="Yarislar" outcome="/panel/yaris/yaris" ></h:link>
+                    <h:link class="navbar-brand" value="Pistler" outcome="/panel/pistler/pistler" ></h:link>
+                    <h:link class="navbar-brand" value="Koclar" outcome="/panel/koclar/koclar" ></h:link>
+                    <h:link class="navbar-brand" value="Takimlar" outcome="/panel/takimlar/takimlar" ></h:link>
+                </div>
+            </nav>
+        </h:form>
+
+
         <h:form>
             <h:dataTable styleClass="table table-striped" value="#{takimKoclariController.takimKoclariList}" var="koc">
                 <h:column>
