@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+        <style>
+            .bg-transparents{
+                background-color: #081c25 !important;
+            }
+            .bg-successa{
+                background-color: #01d475 !important;
+            }
+        </style>
+        <title>Kayıt</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <nav class="navbar navbar-transparent bg-transparents navbar-expand-lg text-white">
+                <div class="container">
+                    <h:link  class="nav-link text-white" value="Anasayfa" outcome="/index.xhtml"></h:link>
+                    <ul class="navbar-nav ml-auto">
+
+                        <h:form rendered="#{sessionScope.kullanici.kullanici_adi==null }">
+
+                            <li class="nav-item px-3 ">
+                                <h:link  class="nav-link text-white" value="Oturum Aç" outcome="/giris.xhtml"></h:link>
+                            </li>
+                            <li class="nav-item pl-3 ">
+                                <h:link  class="nav-link text-white" value="Kayıt Ol" outcome="/kayit.xhtml"></h:link>
+                            </li>
+                        </h:form>
+
+                        <h:form prependId="false" rendered="#{kullaniciController.kullanici.kullanici_adi == null ? sessionScope.kullanici.yetki.grup == 'admin' ? true : false : true}">
+                            <li class="nav-item pl-3 ">
+                                <h:link  class="nav-link text-white" value="Admin Paneli" outcome="/panel/yariscilar/yariscilar.xhtml"></h:link>
+                            </li>
+                        </h:form>
+
+                        <h:form>       
+                            <li class="nav-item pl-3 ">
+                                <h6 class="text-white">#{sessionScope.kullanici.kullanici_adi}</h6>
+                            </li>
+                        </h:form>
+
+                        <h:form rendered="#{sessionScope.kullanici.kullanici_adi!=null }">
+                            <li class="nav-item pl-3 ">
+
+                                <h:link  class="nav-link text-white" value="Çıkış" outcome="/cikis.xhtml"></h:link>
+                            </li>
+                        </h:form>
+                    </ul>
+                </div>
+            </nav>
+        </h:form>  
+
+        <h:form>
+
+            <div class="container">
+                <div class="d-flex justify-content-center"  >
+                    <div class="card " style="width: 300px" >
+                        <div class="card-header bg-transparents text-center">
+                            <h3 class="text-white">Kayıt Ol</h3>
+                        </div>
+
+                        <div class="card-body bg-dark">
+                            <div class="container">
+                                <h:form> 
+                                    <h:inputHidden value="#{kullaniciController.kullanici.kullanici_id}" />
+                                    <h6 class="text-white">Kullanıcı Adı</h6>
+                                    <div class="input-group form-group">
+
+                                        <div class="input-group-prepend">
+
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+
+                                            <h:inputText id="kullanici_adi" value="#{kullaniciController.kullanici.kullanici_adi}" /><br />
+                                        </div>
+                                    </div>
+                                    <h6 class="text-white">Sifre</h6>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        <h:inputText id="sifre" value="#{kullaniciController.kullanici.sifre}" /><br />
+                                    </div>
+
+
+                                    <h6 class="text-white">E-Posta</h6>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        <h:inputText id="e-posta" value="#{kullaniciController.kullanici.eposta}" /><br />
+
+                                    </div>
+
+                                    <h:inputHidden value="#{kullaniciController.kullanici.yetki.yetki_id}" />
+
+
+                                    <div class="form-group">
+                                        <h:commandButton styleClass="btn btn-light" action="#{kullaniciController.olustur}" value="Kayıt Ol" />
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparents">
+                            <div class="d-flex justify-content-center links text-white">
+                                <b>Hesabin var mı?</b> <a href="giris.xhtml" class="text-white" >Giris Yap</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </h:form>
+    </h:body>
+</html>
+

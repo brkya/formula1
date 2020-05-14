@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Takimlar</title>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="btn-group" role="group">
+                    <h:link class="navbar-brand" value="Formula 1" outcome="/index.xhtml" ></h:link>
+                    <h:link class="navbar-brand" value="Yariscilar" outcome="/panel/yariscilar/yariscilar" ></h:link>
+                    <h:link class="navbar-brand" value="Yarislar" outcome="/panel/yaris/yaris" ></h:link>
+                    <h:link class="navbar-brand" value="Pistler" outcome="/panel/pistler/pistler" ></h:link>
+                    <h:link class="navbar-brand" value="Koclar" outcome="/panel/koclar/koclar" ></h:link>
+                    <h:link class="navbar-brand" value="Takimlar" outcome="/panel/takimlar/takimlar" ></h:link>
+                </div>
+            </nav>
+        </h:form>
+
+        <div class ="row">
+            <div class="col-md-7">
+                <h:form>
+                    <h:dataTable styleClass="table table-striped" value="#{kullaniciController.kullaniciList}" var="kullanici">
+                        <h:column>
+                            <f:facet name="header">kullanici_id</f:facet>
+                                #{kullanici.kullanici_id}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Kullanici Adı</f:facet>
+                            <h:commandLink action ="#{kullaniciController.formuGuncelle(kullanici)}" value="#{kullanici.kullanici_adi}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Sifre</f:facet>
+                            <h:commandLink action ="#{kullaniciController.formuGuncelle(kullanici)}" value="#{kullanici.sifre}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Eposta</f:facet>
+                            <h:commandLink action ="#{kullaniciController.formuGuncelle(kullanici)}" value="#{kullanici.eposta}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Yetki</f:facet>
+                            <h:commandLink action ="#{kullaniciController.formuGuncelle(kullanici)}" value="#{kullanici.yetki.grup}">
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Sil</f:facet>
+                            <h:commandButton  styleClass="btn btn-danger" action="#{takimlarController.onaylaSil(kullanici)}" value ="Sil" >
+
+                            </h:commandButton>
+
+                        </h:column>
+
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
+

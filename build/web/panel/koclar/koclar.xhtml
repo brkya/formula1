@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+        <title>Koclar</title>
+    </h:head>
+
+    <h:body>
+
+        <h:form>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="btn-group" role="group">
+                    <h:link class="navbar-brand" value="Formula 1" outcome="/index.xhtml" ></h:link>
+                    <h:link class="navbar-brand" value="Yariscilar" outcome="/panel/yariscilar/yariscilar" ></h:link>
+                    <h:link class="navbar-brand" value="Yarislar" outcome="/panel/yaris/yaris" ></h:link>
+                    <h:link class="navbar-brand" value="Pistler" outcome="/panel/pistler/pistler" ></h:link>
+                    <h:link class="navbar-brand" value="Koclar" outcome="/panel/koclar/koclar" ></h:link>
+                    <h:link class="navbar-brand" value="Takimlar" outcome="/panel/takimlar/takimlar" ></h:link>
+                </div>
+            </nav>
+        </h:form>
+
+        <div class ="row">
+            <div class="col-md-7">
+                <h:form>
+                    <h:dataTable styleClass="table table-striped" value="#{takimKoclariController.takimKoclariList}" var="koc">
+                        <h:column>
+                            <f:facet name="header"> Koc_id </f:facet>
+                                #{koc.koc_id}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Adi</f:facet>
+                            <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.koc_adi}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Soyadi</f:facet>
+                            <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.koc_soyadi}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Yas</f:facet>
+                            <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.yas}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Doğum Yeri</f:facet>
+                            <h:commandLink action ="#{takimKoclariController.formuGuncelle(koc)}" value="#{koc.dogum_yeri}" >
+
+                            </h:commandLink>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Sil</f:facet>
+                            <h:commandButton  styleClass="btn btn-danger" action="#{takimKoclariController.onaylaSil(koc)}" value ="Sil" >
+
+                            </h:commandButton>
+
+                        </h:column>
+
+                    </h:dataTable>
+                </h:form>
+            </div>
+
+            <div class="col-md-3">
+                <h:form id="koc-form">
+                    <h:inputHidden value="#{takimKoclariController.takimKoclari.koc_id}" />
+                    <br/> <h6>Ad</h6> <h:inputText  id ="kocadval" value="#{takimKoclariController.takimKoclari.koc_adi}" >
+                    </h:inputText> <br/>
+
+                    <br/> <h6>Soyad</h6> <h:inputText  id ="kocsoyadval" value="#{takimKoclariController.takimKoclari.koc_soyadi}" >
+                    </h:inputText> <br/>
+
+                    <br/> <h6>Yaş</h6> <h:inputText  id ="kocyasval" value="#{takimKoclariController.takimKoclari.yas}" >
+                    </h:inputText> <br/>
+
+                    <br/> <h6>Doğum Yeri</h6> <h:inputText  id ="kocdogumval" value="#{takimKoclariController.takimKoclari.dogum_yeri}" >
+                    </h:inputText> <br/>
+
+                    <div class="form-group">
+
+                        <div class="btn-group">
+                            <h:commandButton  styleClass="btn btn-primary" value ="Ekle" action ="#{takimKoclariController.olustur}">
+
+                            </h:commandButton>
+
+                            <h:commandButton  styleClass="btn btn-warning" value ="Guncelle" action ="#{takimKoclariController.guncelle}">
+
+                            </h:commandButton>
+
+                            <h:commandButton  styleClass="btn btn-info" value ="Temizle" action ="#{takimKoclariController.temizle}">
+
+                            </h:commandButton>
+                        </div>
+                    </div>
+
+                </h:form>
+
+            </div>
+
+
+
+        </div>
+    </h:body>
+</html>
+

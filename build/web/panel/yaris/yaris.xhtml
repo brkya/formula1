@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Yarislar</title>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+
+        <h:form>
+
+            <h:form>
+                <nav class="navbar navbar-dark bg-dark">
+                    <div class="btn-group" role="group">
+                        <h:link class="navbar-brand" value="Formula 1" outcome="/index.xhtml" ></h:link>
+                        <h:link class="navbar-brand" value="Yariscilar" outcome="/panel/yariscilar/yariscilar" ></h:link>
+                        <h:link class="navbar-brand" value="Yarislar" outcome="/panel/yaris/yaris" ></h:link>
+                        <h:link class="navbar-brand" value="Pistler" outcome="/panel/pistler/pistler" ></h:link>
+                        <h:link class="navbar-brand" value="Koclar" outcome="/panel/koclar/koclar" ></h:link>
+                        <h:link class="navbar-brand" value="Takimlar" outcome="/panel/takimlar/takimlar" ></h:link>
+                    </div>
+                </nav>
+            </h:form>
+
+
+            <h:dataTable styleClass="table table-striped" value="#{yarisController.yarisList}" var="yaris">
+                <h:column>
+                    <f:facet name="header"> Yaris_id</f:facet>
+                        #{yaris.yaris_id}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Yaris Adi</f:facet>
+                    <h:commandLink action ="#{yarisController.formuGuncelle(yaris)}" value="#{yaris.yaris_adi}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Tarih</f:facet>
+                    <h:commandLink action ="#{yarisController.formuGuncelle(pist)}" value="#{yaris.tarih}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Pist Adi</f:facet>
+                    <h:commandLink action ="#{yarisController.formuGuncelle(pist)}" value="#{yaris.pist.pist_adi}" >
+
+                    </h:commandLink>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Sil</f:facet>
+                    <h:commandButton  styleClass="btn btn-danger" action="#{yarisController.onaylaSil(yaris)}" value ="Sil" >
+
+                    </h:commandButton>
+
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+
+    </h:body>
+</html>
+
